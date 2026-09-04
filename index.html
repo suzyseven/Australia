@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#0FAFC0">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#07171B">
+<title>澳洲我们来了 · 悉尼 → 圣灵群岛 → 墨尔本</title>
+<style>
+:root{
+  --bg:#EFFAF7;
+  --card:#FFFFFF;
+  --card2:#E8F6F2;
+  --ink:#0E3038;
+  --muted:#45747D;
+  --faint:#7C9CA1;
+  --line:#C9E4DF;
+  --reef:#0E9AA0;
+  --reef-ink:#0B7E86;
+  --coral:#FF6B5E;
+  --gold:#E9A23B;
+  --hero1:#0FAFC0;
+  --hero2:#37CEB0;
+  --hero3:#FFC761;
+  --btn-bg:#0B7E86;
+  --btn-fg:#FFFFFF;
+  --shadow:0 6px 20px rgba(14,48,56,.08);
+  --r:14px;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Songti SC",SimSun,serif;
+}
+@media (prefers-color-scheme: dark){
+:root{
+  --bg:#06222B;
+  --card:#0B313B;
+  --card2:#0A2B34;
+  --ink:#E2F2EF;
+  --muted:#9ABCB9;
+  --faint:#6F9498;
+  --line:#1E4A52;
+  --reef:#23C9C6;
+  --reef-ink:#8CF0E7;
+  --coral:#FF8A72;
+  --gold:#FFC75E;
+  --hero1:#0B3B43;
+  --hero2:#11525A;
+  --hero3:#14525A;
+  --btn-bg:#2BC7C3;
+  --btn-fg:#04262B;
+  --shadow:0 6px 22px rgba(0,0,0,.35);
+}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;font-size:15px;
+  -webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 64px}
+a{color:var(--reef-ink);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:currentColor}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ---------- HERO / NOW ---------- */
+.hero{background:linear-gradient(150deg,var(--hero1),var(--hero2) 52%,var(--hero3));color:var(--ink);
+  border-radius:0 0 26px 26px;padding:22px 0 26px;margin-bottom:20px}
+.hero-in{max-width:720px;margin:0 auto;padding:0 16px}
+.trip-route{font-size:11px;letter-spacing:.28em;color:var(--reef-ink);text-transform:uppercase;margin:2px 0 12px;font-weight:700}
+h1{font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:.01em;margin:0 0 4px;color:#0A3A44}
+@media (prefers-color-scheme: dark){h1{color:#F2FFFC}}
+.hero-sub{font-size:13px;color:var(--muted)}
+.now-card{margin-top:18px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.85);
+  border-radius:18px;padding:16px 18px;backdrop-filter:blur(6px);box-shadow:0 8px 24px rgba(10,60,70,.12)}
+.now-eyebrow{font-size:11px;letter-spacing:.24em;color:var(--reef-ink);display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.now-label{font-weight:800;font-size:17px;margin:6px 0 2px;line-height:1.35;color:var(--ink)}
+.now-meta{font-size:12.5px;color:var(--muted)}
+.count{display:flex;gap:10px;margin:14px 0 2px;align-items:stretch}
+.cseg{flex:1;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);border-radius:14px;padding:8px 4px;text-align:center;min-width:0;box-shadow:0 2px 6px rgba(10,60,70,.06)}
+.cnum{font-size:clamp(22px,7vw,34px);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums;color:#0A3A44}
+.clab{font-size:10px;letter-spacing:.18em;color:var(--reef-ink);margin-top:2px;font-weight:700}
+.now-foot{font-size:11.5px;color:var(--muted);margin-top:10px;display:flex;flex-wrap:wrap;gap:4px 14px}
+@media (prefers-color-scheme: dark){
+.hero{background:linear-gradient(150deg,var(--hero1),var(--hero2) 55%,var(--hero3))}
+.trip-route{color:var(--reef-ink)}
+.now-card{background:rgba(6,34,43,.55);border:1px solid rgba(255,255,255,.12)}
+.cseg{background:rgba(6,34,43,.55);border:1px solid rgba(255,255,255,.1)}
+.cnum{color:#EAFBFA}
+.now-eyebrow{color:var(--reef-ink)}
+.now-label{color:var(--ink)}
+}
+
+/* ---------- SECTION ---------- */
+section{margin-top:30px}
+.sec-head{display:flex;align-items:baseline;gap:10px;margin:0 2px 12px;border-bottom:2px solid var(--line);padding-bottom:6px}
+.sec-idx{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--coral)}
+.sec-title{font-size:17px;font-weight:800;letter-spacing:.02em}
+.sec-sub{margin-left:auto;font-size:11.5px;color:var(--faint)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow)}
+.card+.card{margin-top:12px}
+.muted{color:var(--muted)}
+.chip{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:999px;
+  background:var(--card2);border:1px solid var(--line);color:var(--muted);vertical-align:middle}
+.chip.coral{background:rgba(226,103,75,.12);border-color:rgba(226,103,75,.35);color:var(--coral)}
+.chip.reef{background:rgba(14,140,150,.12);border-color:rgba(14,140,150,.3);color:var(--reef-ink)}
+.chip.gold{background:rgba(201,151,30,.13);border-color:rgba(201,151,30,.35);color:#9a7414}
+@media (prefers-color-scheme: dark){.chip.gold{color:#EFC45C}}
+
+/* ---------- bookings ---------- */
+.bk{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:start}
+.bk-ico{grid-row:span 2;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;letter-spacing:.02em;color:#fff;margin-top:2px}
+.bk b{font-size:14.5px;display:block;line-height:1.4}
+.bk .meta{font-size:12.5px;color:var(--muted);line-height:1.55}
+.bk a.loc{font-size:12.5px;color:var(--reef-ink);font-weight:600}
+.bk .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:3px}
+.grp-title{font-size:12.5px;font-weight:800;letter-spacing:.16em;color:var(--faint);margin:22px 0 8px;text-transform:uppercase}
+.grp-title:first-child{margin-top:0}
+
+/* ---------- itinerary ---------- */
+.day{border-left:4px solid var(--dc,var(--reef));margin:0 0 16px;padding-left:0;scroll-margin-top:12px}
+.day-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-bottom:2px}
+.day-date{font-size:13px;font-weight:800;letter-spacing:.06em}
+.day-tag{font-size:12px;color:var(--muted)}
+.day-title{font-size:16px;font-weight:800;margin:0}
+.day-overnight{font-size:12px;color:var(--muted);margin:2px 0 8px}
+.day-overnight b{color:var(--ink)}
+.it{display:grid;grid-template-columns:64px 1fr;gap:6px 12px;padding:7px 0 7px 14px;border-bottom:1px dashed var(--line);position:relative}
+.it:last-child{border-bottom:0}
+.it-time{font-size:12.5px;font-weight:700;color:var(--dc,var(--reef-ink));text-align:right;font-variant-numeric:tabular-nums;padding-top:2px}
+.it-body{font-size:14px}
+.it-body .what{font-weight:700}
+.it-body .det{color:var(--muted);font-size:13px;line-height:1.55}
+.it-body a{font-weight:600}
+details.daymap{margin:8px 0 4px 14px;background:var(--card2);border:1px dashed var(--line);border-radius:10px}
+details.daymap summary{cursor:pointer;list-style:none;padding:8px 12px;font-size:12.5px;font-weight:700;color:var(--reef-ink);
+  display:flex;align-items:center;gap:8px;user-select:none}
+details.daymap summary::-webkit-details-marker{display:none}
+details.daymap summary:before{content:"";display:inline-block;width:0;height:0;border-left:5px solid currentColor;border-top:4px solid transparent;border-bottom:4px solid transparent;transition:transform .15s}
+details.daymap[open] summary:before{transform:rotate(90deg)}
+.mapbox{padding:0 10px 12px}
+.mapbox svg{width:100%;height:auto;display:block}
+.navbtn{display:inline-block;margin:8px 12px 12px;padding:9px 16px;background:var(--btn-bg);color:var(--btn-fg);
+  border-radius:999px;font-size:13px;font-weight:700;border:none;cursor:pointer;box-shadow:0 3px 10px rgba(10,60,70,.18)}
+.navbtn:hover{opacity:.9}
+
+/* ---------- todos & tips ---------- */
+ol.todo{list-style:none;counter-reset:td;margin:4px 0}
+ol.todo li{counter-increment:td;padding:9px 0 9px 40px;position:relative;border-bottom:1px dashed var(--line);font-size:14px}
+ol.todo li:last-child{border-bottom:0}
+ol.todo li:before{content:counter(td);position:absolute;left:0;top:9px;width:26px;height:26px;border-radius:50%;
+  background:var(--card2);border:1.5px solid var(--line);color:var(--coral);font-weight:800;font-size:12.5px;
+  display:flex;align-items:center;justify-content:center}
+ol.todo li .t{font-weight:700}
+ol.todo li .d{color:var(--muted);font-size:13px}
+ul.tips{list-style:none;margin:2px 0}
+ul.tips li{padding:8px 0 8px 22px;position:relative;font-size:13.5px;color:var(--ink);border-bottom:1px dashed var(--line)}
+ul.tips li:last-child{border-bottom:0}
+ul.tips li:before{content:"·";position:absolute;left:6px;top:7px;font-weight:900;color:var(--coral);font-size:18px}
+ul.tips b{color:var(--ink)}
+.foot{margin-top:40px;text-align:center;font-size:11px;color:var(--faint);letter-spacing:.05em}
+@media (max-width:420px){ .it{grid-template-columns:56px 1fr} }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO / NOW ================= -->
+<header class="hero">
+  <div class="hero-in">
+    <div class="trip-route">Shanghai · Sydney · Whitsundays · Melbourne</div>
+    <h1>澳洲我们来了</h1>
+    <div class="hero-sub">2026.9.23 – 10.6 · 13 天 · 2 人 · 悉尼 / 圣灵群岛 / 墨尔本</div>
+
+    <div class="now-card">
+      <div class="now-eyebrow"><span>此刻关注</span><span id="nowClock"></span></div>
+      <div class="now-label" id="nowLabel">加载中…</div>
+      <div class="now-meta" id="nowMeta"></div>
+      <div class="count" id="count">
+        <div class="cseg"><div class="cnum" id="cd-d">–</div><div class="clab">天</div></div>
+        <div class="cseg"><div class="cnum" id="cd-h">–</div><div class="clab">小时</div></div>
+        <div class="cseg"><div class="cnum" id="cd-m">–</div><div class="clab">分钟</div></div>
+        <div class="cseg"><div class="cnum" id="cd-s">–</div><div class="clab">秒</div></div>
+      </div>
+      <div class="now-foot"><span id="nowPlace"></span><span id="nowDevice"></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ================= 总览地图 ================= -->
+<section>
+  <div class="sec-head"><span class="sec-idx">一</span><span class="sec-title">行程总览</span><span class="sec-sub">手绘示意 · 非比例尺</span></div>
+  <div class="card">
+    <!-- overview SVG injected by JS for responsive + day colours -->
+    <div id="overviewMap"></div>
+    <div id="overviewLegend" style="margin-top:8px"></div>
+  </div>
+</section>
+
+<!-- ================= 已确认预订 ================= -->
+<section>
+  <div class="sec-head"><span class="sec-idx">二</span><span class="sec-title">已确认预订</span><span class="sec-sub">以出票单为准</span></div>
+  <div class="card">
+    <div class="grp-title">国际航班 · 新加坡航空 · 2 人</div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#0E8C96">SQ831</div>
+      <b>去程 上海 → 悉尼（新航）</b>
+      <div class="meta">
+        9/23(三) 14:30 上海浦东 T2 → 20:20 新加坡樟宜；转机 4h25m<br>
+        9/24(四) 00:45 樟宜 T3 → 10:25 悉尼 T1 · 行李直挂<br>
+        <span class="tnum">托运 25kg/人 · 手提 7kg/人</span>
+      </div>
+    </div>
+    <div class="bk" style="margin-bottom:4px">
+      <div class="bk-ico" style="background:#0E8C96">SQ208</div>
+      <b>返程 墨尔本 → 上海（新航）</b>
+      <div class="meta">
+        10/5(一) 19:25 墨尔本 T2 → 10/6 00:15 樟宜；转机 1h<br>
+        10/6(二) 01:15 樟宜 T3 → 06:35 上海浦东 T2 · 行李直挂<br>
+        <span class="tnum">托运 30kg/人 · 手提 7kg/人</span>
+      </div>
+    </div>
+
+    <div class="grp-title">澳洲国内 · 2 人</div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#C9971E">JQ838</div>
+      <b>9/28(一) 悉尼 → 圣灵海岸（捷星）</b>
+      <div class="meta">15:40 悉尼 T2 → 18:15 普罗瑟派恩机场(PPP) · <span class="tnum">托运20kg</span></div>
+    </div>
+    <div class="bk" style="margin-bottom:4px">
+      <div class="bk-ico" style="background:#E2674B">QF1597</div>
+      <b>10/2(五) 汉密尔顿岛 → 墨尔本（澳航）</b>
+      <div class="meta">12:00 大堡礁机场(HTI) → 15:10 墨尔本 T1 · <span class="tnum">托运23kg</span></div>
+    </div>
+
+    <div class="grp-title">住宿</div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#3E8FA6">住</div>
+      <b>悉尼 · Rydges Australia Square <span class="chip">已付</span></b>
+      <div class="meta">
+        9/24(四) 15:00后入住 → 9/28(一) 11:00前退房 · 4 晚 · 大床房<br>
+        <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rydges%20Australia%20Square%2097-99%20Pitt%20St%20Sydney">97-99 Pitt St, Sydney NSW 2000 · 导航</a><br>
+        <span class="tnum">+61-2-8222 1200</span>
+      </div>
+    </div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#13908F">住</div>
+      <b>艾尔利海滩 · Airlie Beach Hotel <span class="chip">已付</span></b>
+      <div class="meta">
+        9/28(一) 14:00后入住 → 9/30(三) 10:00前退房 · 2 晚 · 已备注双床/无烟<br>
+        <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Airlie%20Beach%20Hotel%20Esplanade%20Coconut%20Grove%20Airlie%20Beach">Cnr The Esplanade &amp; Coconut Grove, Airlie Beach QLD 4802 · 导航</a><br>
+        <span class="tnum">+61-7-4964 1999</span>
+      </div>
+    </div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#E08A3C">住</div>
+      <b>汉密尔顿岛 · Reef View Hotel <span class="chip gold">余款约9/23自动扣</span></b>
+      <div class="meta">
+        9/30(三) 入住 → 10/2(五) 退房 · 2 晚 · 园景房含早餐<br>
+        <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Reef%20View%20Hotel%20Hamilton%20Island">Hamilton Island QLD 4803 · 导航</a><br>
+        <span class="tnum">酒店专线 137 333 · +61-2-9433 0444</span>
+      </div>
+    </div>
+    <div class="bk" style="margin-bottom:4px">
+      <div class="bk-ico" style="background:#7A64A6">住</div>
+      <b>墨尔本 · Atlantis Hotel Melbourne <span class="chip">已付</span></b>
+      <div class="meta">
+        10/2(五) 入住 → 10/5(一) 退房 · 3 晚 · 城景房<br>
+        <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Atlantis%20Hotel%20Melbourne%20300%20Spencer%20St">300 Spencer St, Melbourne VIC 3000 · 导航</a><br>
+        <span class="tnum">+61-3-9600 2900</span>
+      </div>
+    </div>
+
+    <div class="grp-title">活动 / 门票</div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#8E6E9E">演</div>
+      <b>悉尼歌剧院 · 《My Fair Lady》音乐剧 <span class="chip">已出票</span></b>
+      <div class="meta">
+        9/24(四) 19:30 开演 · Joan Sutherland 剧院<br>
+        电子票演出前 3 天发至邮箱，到场手机扫码即可，无需换纸质票
+      </div>
+    </div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#3E8FA6">鲸</div>
+      <b>悉尼观鲸 · Ocean Extreme「ORCA」 <span class="chip">已付</span></b>
+      <div class="meta">
+        9/26(六) 08:00 开船 · <b>07:40 前</b>到码头签到<br>
+        <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Campbell%27s%20Cove%20Pontoon%20Circular%20Quay%20West%20Sydney">Campbell’s Cove 浮桥（海外客运码头北端）· 导航</a><br>
+        看不到鲸凭票当季可再约一次
+      </div>
+    </div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#2FA279">帆</div>
+      <b>圣灵群岛 · Camira 白沙滩帆船一日游 <span class="chip">已付</span></b>
+      <div class="meta">
+        9/29(二) 07:45 自行集合换票 · 含白沙滩 &amp; 希尔湾观景台 &amp; 船上餐饮<br>
+        <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Port%20of%20Airlie%2024%20The%20Cove%20Road%20Airlie%20Beach">Port of Airlie · 24 The Cove Rd, Airlie Beach QLD 4802 · 导航</a>
+      </div>
+    </div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#C0526B">跳</div>
+      <b>SKYONE 双人跳伞 · 沙滩降落+跟拍 <span class="chip">已付</span></b>
+      <div class="meta">
+        9/30(三) 06:15 Wisdom Cafe 集合接驳（跳伞约 06:30）<br>
+        <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Wisdom%20Cafe%20273%20Shute%20Harbour%20Rd%20Airlie%20Beach">273 Shute Harbour Rd, Airlie Beach QLD 4802 · 导航</a><br>
+        <span class="tnum">+61-7-4838 4040</span> · 出发前 24h 完成线上注册 · 带证件 · 限重 115kg
+      </div>
+    </div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#E08A3C">机</div>
+      <b>Airlie Beach Helicopters · 礁石 &amp; 白沙滩航拍 <span class="chip">已付</span></b>
+      <div class="meta">
+        9/30(三) 14:00–15:00 · 13:30 酒店接 · 飞完送至 Shute Harbour 码头<br>
+        <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Whitsunday%20Airport%2012%20Air%20Whitsunday%20Rd%20Flametree">Whitsunday Airport · 12 Air Whitsunday Rd, Flametree QLD 4802 · 导航</a><br>
+        <span class="tnum">0482 627 165</span>
+      </div>
+    </div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#13908F">船</div>
+      <b>轮渡 · Cruise Whitsundays → 汉密尔顿岛 <span class="chip">已付</span></b>
+      <div class="meta">
+        9/30(三) 16:55 Shute Harbour → 17:30 Hamilton Island Marina · 2 成人<br>
+        <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shute%20Harbour%20Terminal%20Whitsundays">Shute Harbour 码头 · 导航</a>
+      </div>
+    </div>
+    <div class="bk" style="margin-bottom:10px">
+      <div class="bk-ico" style="background:#6E63A8">游</div>
+      <b>菲利普岛 + 普芬比利小火车 一日游 <span class="chip gold">已订 · 时刻待通知</span></b>
+      <div class="meta">10/3(六) · 集合时间与地点由导游临近通知</div>
+    </div>
+    <div class="bk" style="margin-bottom:4px">
+      <div class="bk-ico" style="background:#B04A8C">游</div>
+      <b>大洋路 一日游 <span class="chip gold">已订 · 时刻待通知</span></b>
+      <div class="meta">
+        10/4(日) · 约 07:00–08:00 出发<br>
+        上车点 220 Spencer St（Atlantis 酒店斜对面）
+      </div>
+    </div>
+
+    <div class="grp-title">餐厅订座</div>
+    <div class="bk" style="margin-bottom:8px">
+      <div class="bk-ico" style="background:#35B9A0">餐</div>
+      <b>Paradiso Airlie Beach <span class="chip">已订座 · 可弃</span></b>
+      <div class="meta">9/30(三) 12:15 · 2 人 · 已备注室外座 · <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Paradiso%20Airlie%20Beach%20287%20Shute%20Harbour%20Rd">287 Shute Harbour Rd · 导航</a></div>
+    </div>
+    <div class="bk">
+      <div class="bk-ico" style="background:#D95F4E">餐</div>
+      <b>Romano’s（汉岛意大利菜） <span class="chip">已订座</span></b>
+      <div class="meta">9/30(三) 20:15 · 2 人 · <a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Romano%27s%20Hamilton%20Island">Front St, Hamilton Island QLD 4803 · 导航</a> · 周日/节假日加价，取消需提前 &gt;12h</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 逐日行程 ================= -->
+<section>
+  <div class="sec-head"><span class="sec-idx">三</span><span class="sec-title">逐日行程</span><span class="sec-sub">点地点即导航 · 点日期看当日路线</span></div>
+  <div id="days"></div>
+</section>
+
+<!-- ================= 待办 ================= -->
+<section>
+  <div class="sec-head"><span class="sec-idx">四</span><span class="sec-title">待办清单</span><span class="sec-sub">办完告诉我，我来更新</span></div>
+  <div class="card">
+    <ol class="todo">
+      <li><span class="t">跳伞线上注册</span> <span class="d">——两人各自完成，须在 9/29 06:30 前（SKYONE 邮件里的链接）</span></li>
+      <li><span class="t">汉岛 Reef View 余款</span> <span class="d">——约 9/23 前自动扣款 AUD1,296，留意卡内额度；同时把 9/30 轮渡到达信息提交给酒店</span></li>
+      <li><span class="t">Taronga 动物园门票 + 考拉预约</span> <span class="d">——OTA 买票并预约摸考拉（计划选第一批），9/25 前完成</span></li>
+      <li><span class="t">9/28 机场接驳</span> <span class="d">——订 PPP 机场 → Airlie Beach Hotel 接驳；提前告知酒店晚到（前台约 20:00 下班）</span></li>
+      <li><span class="t">墨尔本一日游时刻</span> <span class="d">——10/3 菲利普岛、10/4 大洋路的具体集合时间地点，导游通知后告诉我</span></li>
+      <li><span class="t">每日餐厅</span> <span class="d">——除 9/30 外逐日补定；9/25 动物园早餐干粮提前买</span></li>
+      <li><span class="t">10/5 墨尔本最后一天行李</span> <span class="d">——问 Atlantis 能否寄存/晚退房，晚上 19:25 起飞</span></li>
+      <li><span class="t">澳洲入境</span> <span class="d">——确认 ETA 已获批；出发前再次核对护照有效期</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= 实用贴士 ================= -->
+<section>
+  <div class="sec-head"><span class="sec-idx">五</span><span class="sec-title">实用贴士</span></div>
+  <div class="card">
+    <ul class="tips">
+      <li><b>对时：</b>澳洲东部时间比北京快 2 小时（AEST/UTC+10）；<b>10/4（周日）凌晨起悉尼和墨尔本进入夏令时</b>，届时墨尔本比北京快 3 小时。圣灵群岛（昆士兰）无夏令时。本页所有时间均标注当地城市时间，倒计时按绝对时刻计算，跨时区打开不会错。</li>
+      <li><b>悉尼 Opal 交通卡：</b>机场 T1 内 WHSmith 可办卡充值；巴士/火车/轮渡通用，每日扣费有上限。T1 → 市区：420 路巴士到 Mascot 站换 T8 火车至 Wynyard，步行到酒店。</li>
+      <li><b>天气与穿衣：</b>9 月底悉尼约 15–25°C，圣灵群岛约 22–28°C，墨尔本约 10–20°C。海边风大：观鲸、跳伞带防风外套；看企鹅/日落加保暖层。紫外线极强，防晒霜+墨镜每天都要。</li>
+      <li><b>晕船药：</b>观鲸、Camira、轮渡都用得上，提前在药房备好，观鲸当天早上少吃油腻。</li>
+      <li><b>电源插座：</b>澳洲为三脚扁插（斜八字），与国内不同，记得带转换头；电压 230V。</li>
+      <li><b>网络：</b>到澳后买 eSIM 或本地预付卡（Telstra/Optus）更稳；本页可离线保存——浏览器里「保存/分享为 PDF」留一份离线版。</li>
+      <li><b>退税：</b>离境前 60 天内、同店累计消费 ≥ AUD300 可退 GST，保留发票，办理托运前到机场退税柜台；墨尔本 T2 出发，建议起飞前 3 小时到。</li>
+      <li><b>汉岛交通：</b>岛上有免费绿/蓝巴士。绿巴士约 15 分钟一班：珊瑚景酒店 ↔ Catseye 海滩 ↔ Marina 小镇；蓝巴士约 40 分钟一班环岛（含 One Tree Hill）。前台可取时刻表。</li>
+      <li><b>玩水安全：</b>只在有旗子的海滩区域下水；浮潜听从船方安排。10 月起为水母季，运营商提供防护服（stinger suit），需下水时务必穿。</li>
+      <li><b>隐私说明：</b>本页为公开分享版，不含任何证件号、预订确认号与房间号，请勿将含敏感信息的截图直接转发页面链接。</li>
+    </ul>
+  </div>
+</section>
+
+<div class="foot">悉尼 · 圣灵群岛 · 墨尔本 — 祝旅途愉快</div>
+</div>
+
+<script>
+/* ============ 事件（绝对时间戳 = 本地时刻换算 UTC） ============ */
+var EVENTS=[
+ {t:1790145000000,label:"SQ831 上海浦东 T2 起飞",place:"上海 · 浦东机场",loc:"9/23 14:30 上海时间"},
+ {t:1790181900000,label:"SQ231 新加坡樟宜 T3 起飞",place:"新加坡 · 樟宜机场",loc:"9/24 00:45 新加坡时间"},
+ {t:1790209500000,label:"抵达悉尼（SQ231）",place:"悉尼 · Kingsford Smith 机场 T1",loc:"9/24 10:25 悉尼时间"},
+ {t:1790242200000,label:"歌剧《My Fair Lady》开演",place:"悉尼歌剧院 · Joan Sutherland 剧院",loc:"9/24 19:30 悉尼时间"},
+ {t:1790373600000,label:"观鲸开船（提前 20 分钟到）",place:"Circular Quay · Campbell’s Cove",loc:"9/26 08:00 悉尼时间"},
+ {t:1790574000000,label:"捷星 JQ838 悉尼 T2 起飞",place:"悉尼机场 T2",loc:"9/28 15:40 悉尼时间"},
+ {t:1790631900000,label:"Camira 帆船集合换票",place:"Port of Airlie · 24 The Cove Rd",loc:"9/29 07:45 艾尔利时间"},
+ {t:1790712900000,label:"跳伞集合接驳",place:"Wisdom Cafe · 273 Shute Harbour Rd",loc:"9/30 06:15 艾尔利时间"},
+ {t:1790734500000,label:"Paradiso 午餐订座",place:"287 Shute Harbour Rd, Airlie Beach",loc:"9/30 12:15 艾尔利时间"},
+ {t:1790740800000,label:"直升机观光起飞",place:"Whitsunday Airport, Flametree",loc:"9/30 14:00 艾尔利时间"},
+ {t:1790751300000,label:"轮渡 Shute Harbour → 汉岛",place:"Shute Harbour 码头",loc:"9/30 16:55 艾尔利时间"},
+ {t:1790763300000,label:"Romano’s 晚餐订座",place:"Front St, Hamilton Island",loc:"9/30 20:15 汉岛时间"},
+ {t:1790906400000,label:"澳航 QF1597 汉岛起飞",place:"大堡礁机场 HTI",loc:"10/2 12:00 汉岛时间"},
+ {t:1791188700000,label:"SQ208 墨尔本 T2 起飞（回家）",place:"墨尔本机场 T2",loc:"10/5 19:25 墨尔本时间"},
+ {t:1791239700000,label:"抵达上海浦东（SQ826）",place:"上海 · 浦东机场 T2",loc:"10/6 06:35 上海时间"}
+];
+</script>
+<script>
+/* ============ 配色：13 天 ============ */
+var DC=["#C9971E","#3E8FA6","#2F7FA6","#4D6FAC","#7A64A6","#13908F","#2FA279","#35B9A0","#E08A3C","#D95F4E","#C0526B","#B04A8C","#6E63A8"];
+var GM=function(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q)};
+var GL=function(qs){return qs.length<2?GM(qs[0]):"https://www.google.com/maps/dir/"+qs.map(encodeURIComponent).join("/")};
+
+/* ============ 逐日数据 ============ */
+var DAYS=[
+{d:1,date:"9/23 周三",city:"上海 → 新加坡",title:"启程 · 夜航",color:DC[0],hotel:"飞机上（SQ231）",
+ items:[
+  {t:"12:30",w:"抵达浦东机场 T2",d:"国际航班提前 3 小时到；托运 25kg/人，行李直挂悉尼。",q:"上海浦东国际机场T2"},
+  {t:"14:30–20:20",w:"SQ831 上海 → 新加坡",d:"飞行 4h50m，提供餐食。",q:"新加坡樟宜机场T3"},
+  {t:"20:20–00:45",w:"樟宜 T3 转机（4h25m）",d:"提示：雨漩涡在「星耀樟宜」入境区，转机不出境看不到；在 T3 休息、吃点东西就好，别为打卡误机。",q:"新加坡樟宜机场T3"},
+  {t:"00:45",w:"SQ231 樟宜 → 悉尼 起飞",d:"新加坡时间 00:45。",q:""}
+ ],
+ map:["上海浦东 T2","樟宜 T3","(夜航)"],
+ nav:[]},
+{d:2,date:"9/24 周四",city:"悉尼",title:"落地 · 歌剧院之夜",color:DC[1],hotel:"Rydges Australia Square",
+ items:[
+  {t:"10:25",w:"抵达悉尼 T1",d:"行李+过关约 1 小时。",q:"Sydney Airport (SYD) T1"},
+  {t:"11:30–13:00",w:"机场 → 酒店",d:"T1 外乘 420 巴士（2 站）→ Mascot 站换 T8 火车 → Wynyard → 步行。WHSmith 办 Opal 卡并充值。",q:"Mascot Station Sydney"},
+  {t:"13:00",w:"Rydges 寄存行李 / 办入住",d:"15:00 后可进房；先寄存行李出去逛。",q:"Rydges Australia Square 97-99 Pitt St Sydney"},
+  {t:"14:00–17:30",w:"皇家植物园 → 麦考利夫人座椅 → 歌剧院",d:"沿海岸线走到歌剧院，拍黄昏光影。刚下夜航会比较累，走慢一点。",q:"Mrs Macquaries Chair Sydney"},
+  {t:"19:30–22:30",w:"《My Fair Lady》音乐剧",d:"Joan Sutherland 剧院；电子票演出前 3 天发邮箱，手机扫码入场。结束后步行回酒店。",q:"Sydney Opera House"},
+  {t:"",w:"今日提示",d:"第一天用白天散步晒晒太阳调时差，别安排太满。",q:""}
+ ],
+ map:["机场 T1","Mascot","Wynyard","Rydges","植物园","歌剧院"],
+ nav:[{q:"Sydney Airport (SYD) Terminal 1",label:"机场 T1"},{q:"Mascot Station Sydney",label:"Mascot 站"},{q:"Wynyard Station Sydney",label:"Wynyard 站"},{q:"Rydges Australia Square 97-99 Pitt St Sydney",label:"Rydges 酒店"},{q:"Mrs Macquaries Chair Sydney",label:"麦考利夫人座椅"},{q:"Sydney Opera House",label:"悉尼歌剧院"}]},
+{d:3,date:"9/25 周五",city:"悉尼",title:"动物园日",color:DC[2],hotel:"Rydges Australia Square",
+ items:[
+  {t:"上午",w:"Taronga 动物园",d:"Circular Quay Wharf 4 乘 F2 渡轮 → 动物园。提前买门票 + 预约摸考拉（计划第一批）。自备干粮与水。",q:"Taronga Zoo Sydney"},
+  {t:"14:00",w:"轮渡回市区",d:"回 Circular Quay。",q:"Circular Quay"},
+  {t:"15:00 后",w:"Manly 或 The Rocks",d:"二选一：F1 轮渡 30 分钟到 Manly 海滩；或 The Rocks 老城漫步+晚餐（Bar Topa 距酒店约 500m，只可 walk-in）。",q:"Manly Beach Sydney"}
+ ],
+ map:["Circular Quay 4 号码头","Taronga 动物园","Manly / The Rocks"],
+ nav:[{q:"Circular Quay Wharf 4 Sydney",label:"Wharf 4"},{q:"Taronga Zoo Sydney",label:"Taronga 动物园"},{q:"Manly Beach Sydney",label:"Manly 海滩"}]},
+{d:4,date:"9/26 周六",city:"悉尼",title:"观鲸 + 海岸步道",color:DC[3],hotel:"Rydges Australia Square",
+ items:[
+  {t:"07:40",w:"到观鲸码头签到",d:"Campbell’s Cove 浮桥（海外客运码头北端）。带防风外套、墨镜；怕晕船提前吃药。",q:"Campbell's Cove Pontoon Circular Quay West Sydney"},
+  {t:"08:00–11:00",w:"观鲸 · ORCA 号",d:"看不到鲸可凭票当季再约一次。",q:""},
+  {t:"13:00 起",w:"Bondi → Coogee 海岸步道",d:"Icebergs 泳池打卡 → 沿海岸走到 Coogee；周末可能有市集。",q:"Bondi Beach NSW"},
+  {t:"16:00 起",w:"Watsons Bay 日落轮渡",d:"公交过去看日落，再坐轮渡回 Circular Quay。",q:"Watsons Bay NSW"}
+ ],
+ map:["观鲸码头","Bondi","Coogee","Watsons Bay"],
+ nav:[{q:"Campbell's Cove Pontoon Circular Quay West Sydney",label:"观鲸码头"},{q:"Bondi Beach NSW",label:"Bondi 海滩"},{q:"Coogee Beach NSW",label:"Coogee 海滩"},{q:"Watsons Bay NSW",label:"Watsons Bay"}]},
+{d:5,date:"9/27 周日",city:"悉尼",title:"机动 · 缓冲日",color:DC[4],hotel:"Rydges Australia Square",
+ items:[
+  {t:"自由",w:"没有预订的一天",d:"连玩四天后的留白。备选：The Rocks 周末市集、当代艺术馆、新南威尔士美术馆、悉尼大学、天文台山、购物补货。",q:"The Rocks Sydney"}
+ ],
+ map:["市区自由活动"],
+ nav:[{q:"The Rocks Sydney",label:"The Rocks 市集"}]},
+{d:6,date:"9/28 周一",city:"悉尼 → 艾尔利海滩",title:"飞去圣灵群岛",color:DC[5],hotel:"Airlie Beach Hotel",
+ items:[
+  {t:"11:00 前",w:"退房",d:"行李收拾好，出门吃个早午餐。",q:"Rydges Australia Square 97-99 Pitt St Sydney"},
+  {t:"13:40",w:"到悉尼机场 T2",d:"国内航班提前 2 小时。捷星为廉价航空，留意手提行李 ≤7kg。",q:"Sydney Airport (SYD) T2"},
+  {t:"15:40–18:15",w:"JQ838 悉尼 → 普罗瑟派恩(PPP)",d:"圣灵海岸机场落地。",q:"Whitsunday Coast Airport Proserpine"},
+  {t:"18:15–19:15",w:"接驳 → Airlie Beach Hotel",d:"PPP 到酒店约 40 分钟车程（接驳待订）。若晚到提前联系酒店——前台约 20:00 下班，可能需自助入住。",q:"Airlie Beach Hotel Esplanade Airlie Beach"}
+ ],
+ map:["悉尼 T2","PPP 机场","Airlie Beach Hotel"],
+ nav:[{q:"Whitsunday Coast Airport Proserpine",label:"PPP 机场"},{q:"Airlie Beach Hotel Esplanade Airlie Beach",label:"Airlie Beach Hotel"}]},
+{d:7,date:"9/29 周二",city:"圣灵群岛（艾尔利）",title:"Camira 白沙滩一日游",color:DC[6],hotel:"Airlie Beach Hotel",
+ items:[
+  {t:"07:45",w:"Port of Airlie 集合换票",d:"24 The Cove Rd。带泳衣、防晒、毛巾；船上提供餐饮。",q:"Port of Airlie 24 The Cove Road Airlie Beach"},
+  {t:"全天",w:"Camira 帆船 → Whitehaven 白沙滩",d:"含希尔湾观景台轻徒步（视潮汐）与浮潜（救生员较少，可不下水）。约 17:00 返港。",q:"Whitehaven Beach Whitsundays"}
+ ],
+ map:["Port of Airlie","Whitehaven 白沙滩"],
+ nav:[{q:"Port of Airlie 24 The Cove Road Airlie Beach",label:"Port of Airlie 集合点"}]},
+{d:8,date:"9/30 周三",city:"艾尔利 → 汉密尔顿岛",title:"跳伞日 · 高紧凑",color:DC[7],hotel:"Reef View Hotel",
+ items:[
+  {t:"06:15",w:"Wisdom Cafe 集合接驳",d:"跳伞 06:30，含沙滩降落+跟拍。前一晚少食；如天气延误，优先保下午行程、Paradiso 可放弃。",q:"Wisdom Cafe 273 Shute Harbour Rd Airlie Beach"},
+  {t:"10:00 前",w:"酒店退房、行李寄存",d:"带上全部行李准备下午转场。",q:"Airlie Beach Hotel Esplanade Airlie Beach"},
+  {t:"12:15",w:"Paradiso 午餐（订座）",d:"287 Shute Harbour Rd，已备注室外座。",q:"Paradiso Airlie Beach 287 Shute Harbour Rd"},
+  {t:"13:30",w:"直升机酒店接（带行李）",d:"14:00–15:00 礁石 & 白沙滩航拍；Whitsunday Airport 起飞。",q:"Whitsunday Airport 12 Air Whitsunday Rd Flametree"},
+  {t:"15:00 后",w:"送至 Shute Harbour 码头",d:"候船。",q:"Shute Harbour Terminal Whitsundays"},
+  {t:"16:55",w:"轮渡 → 汉密尔顿岛",d:"Cruise Whitsundays，约 17:30 抵 Hamilton Island Marina。",q:""},
+  {t:"20:15",w:"Romano’s 晚餐（订座）",d:"Front St 意大利菜；迟到或取消请提前 >12h。",q:"Romano's Hamilton Island"}
+ ],
+ map:["Wisdom Cafe","Airlie Beach Hotel","Paradiso","Whitsunday Airport","Shute Harbour","汉岛 Marina"],
+ nav:[{q:"Wisdom Cafe 273 Shute Harbour Rd Airlie Beach",label:"跳伞集合"},{q:"Airlie Beach Hotel Esplanade Airlie Beach",label:"酒店退房"},{q:"Paradiso Airlie Beach 287 Shute Harbour Rd",label:"Paradiso 午餐"},{q:"Whitsunday Airport 12 Air Whitsunday Rd Flametree",label:"直升机基地"},{q:"Shute Harbour Terminal Whitsundays",label:"Shute Harbour 码头"}]},
+{d:9,date:"10/1 周四",city:"汉密尔顿岛",title:"海岛自由日",color:DC[8],hotel:"Reef View Hotel",
+ items:[
+  {t:"上午",w:"睡饱 + Catseye 海滩",d:"泳池/浮潜，慢节奏。",q:"Catseye Beach Hamilton Island"},
+  {t:"白天",w:"岛上自选",d:"动物园、桨板/Kayak、双体帆船或网球。绿/蓝巴士免费；餐厅可 walk-in 披萨店。",q:"Hamilton Island Marina"},
+  {t:"傍晚",w:"One Tree Hill 日落野餐",d:"带外卖与速干毯上山等日落。",q:"One Tree Hill Hamilton Island"}
+ ],
+ map:["Reef View","Catseye 海滩","Marina","One Tree Hill"],
+ nav:[{q:"Reef View Hotel Hamilton Island",label:"Reef View 酒店"},{q:"Catseye Beach Hamilton Island",label:"Catseye 海滩"},{q:"Hamilton Island Marina",label:"Marina 码头"},{q:"One Tree Hill Hamilton Island",label:"One Tree Hill"}]},
+{d:10,date:"10/2 周五",city:"汉岛 → 墨尔本",title:"飞往墨尔本",color:DC[9],hotel:"Atlantis Hotel Melbourne",
+ items:[
+  {t:"10:00",w:"退房 → 汉岛机场",d:"酒店接驳约 10 分钟到 HTI；国内提前 2 小时。",q:"Hamilton Island Airport"},
+  {t:"12:00–15:10",w:"QF1597 汉岛 → 墨尔本",d:"抵墨尔本 T1。",q:"Melbourne Airport (MEL) T1"},
+  {t:"15:40",w:"入住 Atlantis",d:"300 Spencer St。SkyBus 或打车从机场到南十字星站附近。",q:"Atlantis Hotel Melbourne 300 Spencer St"},
+  {t:"傍晚",w:"市区随意逛",d:"CBD 步行、涂鸦巷（Hosier Lane）或南岸夜景。",q:"Hosier Lane Melbourne"}
+ ],
+ map:["HTI 机场","墨尔本 T1","Atlantis 酒店"],
+ nav:[{q:"Melbourne Airport (MEL) Terminal 1",label:"墨尔本 T1"},{q:"Atlantis Hotel Melbourne 300 Spencer St",label:"Atlantis 酒店"}]},
+{d:11,date:"10/3 周六",city:"墨尔本",title:"菲利普岛 · 普芬比利一日游",color:DC[10],hotel:"Atlantis Hotel Melbourne",
+ items:[
+  {t:"待通知",w:"一日游（已订）",d:"集合时间/地点由导游临近通知。行程通常含普芬比利蒸汽小火车与傍晚看企鹅归巢。带外套，傍晚海边很冷。",q:""}
+ ],
+ map:["集合点（待通知）"],
+ nav:[]},
+{d:12,date:"10/4 周日",city:"墨尔本",title:"大洋路一日游",color:DC[11],hotel:"Atlantis Hotel Melbourne",
+ items:[
+  {t:"约 07:00–08:00",w:"220 Spencer St 上车",d:"已订一日游，具体时间等导游通知。全天车程，备干粮；十二门徒风大。",q:"220 Spencer Street Melbourne"},
+  {t:"白天",w:"大洋路 / 十二门徒",d:"回程约晚间。",q:"Twelve Apostles Great Ocean Road"}
+ ],
+ map:["220 Spencer St","大洋路 · 十二门徒"],
+ nav:[{q:"220 Spencer Street Melbourne",label:"上车点 220 Spencer St"}]},
+{d:13,date:"10/5 周一",city:"墨尔本 → 返程",title:"最后一天 · 回家",color:DC[12],hotel:"机上",
+ items:[
+  {t:"上午",w:"市区机动 / 购物",d:"咖啡、逛街、补纪念品；先问酒店能否寄存行李或晚退房。",q:"Melbourne CBD"},
+  {t:"16:00",w:"出发去机场",d:"国际航班提前 3 小时到 T2；退税柜台在托运前办理。",q:"Melbourne Airport (MEL) T2"},
+  {t:"19:25",w:"SQ208 墨尔本 → 上海",d:"樟宜转机 1 小时；行李直挂。",q:""},
+  {t:"次日 06:35",w:"抵上海浦东 T2",d:"10/6（周二）清晨到家。",q:""}
+ ],
+ map:["市区","墨尔本 T2"],
+ nav:[{q:"Melbourne CBD",label:"市区"},{q:"Melbourne Airport (MEL) T2",label:"墨尔本 T2"}]}
+];
+
+/* ============ 渲染逐日 ============ */
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function renderDays(){
+  var box=document.getElementById("days"),html="";
+  DAYS.forEach(function(dy){
+    var c=dy.color;
+    html+='<div class="day" style="--dc:'+c+'">'
+      +'<div class="day-head"><span class="day-tag">DAY '+dy.d+'</span><span class="day-date">'+dy.date+'</span>'
+      +'<span class="day-title">'+dy.city+' · '+dy.title+'</span></div>'
+      +'<div class="day-overnight">宿 <b>'+dy.hotel+'</b></div>';
+    dy.items.forEach(function(it){
+      html+='<div class="it"><div class="it-time">'+it.t+'</div><div class="it-body">'
+        +'<span class="what">'+(it.q?('<a href="'+GM(it.q)+'" target="_blank" rel="noopener">'+it.w+'</a>'):it.w)+'</span>'
+        +(it.d?(' <span class="det">'+it.d+'</span>'):'')+'</div></div>';
+    });
+    // 当日示意地图
+    html+='<details class="daymap"><summary>当日路线示意 · '+(dy.nav&&dy.nav.length?('Google 导航（'+dy.nav.length+' 站）'):'本日地图')+'</summary>'
+      +'<div class="mapbox" id="m'+dy.d+'"></div>';
+    if(dy.nav&&dy.nav.length){
+      html+='<button class="navbtn" onclick="openAll('+dy.d+')">打开全天多段导航</button>';
+    }
+    html+='</details></div>';
+  });
+  box.innerHTML=html;
+  DAYS.forEach(function(dy){ drawDayMap("m"+dy.d, dy.map, dy.color); });
+}
+function openAll(d){
+  var dy=DAYS[d-1], qs=dy.nav.map(function(x){return x.q});
+  window.open(GL(qs),"_blank","noopener");
+}
+function drawDayMap(id,labels,color){
+  var el=document.getElementById(id); if(!el)return;
+  var n=labels.length, W=620, H=n>1?240:120, pad=8;
+  var pts=[];
+  for(var i=0;i<n;i++){
+    var t=n>1?i/(n-1):0.5;
+    var x=40+t*(W-80);
+    var y=n>1? (i%2===0?64:176) : H/2;
+    pts.push([x,y]);
+  }
+  // smooth path through midpoints (quadratic)
+  var d="M"+pts[0][0]+" "+pts[0][1];
+  for(var i=1;i<pts.length;i++){
+    var px=(pts[i-1][0]+pts[i][0])/2, py=(pts[i-1][1]+pts[i][1])/2;
+    d+=" Q"+pts[i-1][0]+" "+pts[i-1][1]+" "+px+" "+py;
+  }
+  d+=" L"+pts[pts.length-1][0]+" "+pts[pts.length-1][1];
+  var svg='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="当日示意路线">';
+  svg+='<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="3" stroke-linecap="round" opacity="0.55"/>';
+  for(var i=0;i<n;i++){
+    var x=pts[i][0], y=pts[i][1], up=(i%2===0);
+    svg+='<circle cx="'+x+'" cy="'+y+'" r="15" fill="'+color+'" stroke="#fff" stroke-width="2"/>';
+    svg+='<text x="'+x+'" y="'+(y+4)+'" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">'+(i+1)+'</text>';
+    var lab=labels[i]; var ty=up?y-24:y+34; var anch=up?"middle":"middle";
+    if(!up && y+H*0.8> H){ty=y+36}
+    svg+='<text x="'+x+'" y="'+ty+'" text-anchor="'+anch+'" font-size="12.5" fill="currentColor">'+esc(lab)+'</text>';
+  }
+  svg+='</svg>';
+  el.innerHTML=svg;
+}
+
+/* ============ 总览地图 ============ */
+function renderOverview(){
+  var el=document.getElementById("overviewMap");
+  var W=640,H=470;
+  var coast=[[180,11],[230,34],[312,105],[352,142],[428,157],[448,177],[500,205],[532,211],[592,234],[604,266],[620,275],[604,310],[596,327],[552,350],[528,365],[488,393],[476,413],[420,428],[336,444],[300,430],[280,425],[240,432],[220,440]];
+  var d="M"+coast[0][0]+" "+coast[0][1];
+  for(var i=1;i<coast.length;i++){var px=(coast[i-1][0]+coast[i][0])/2,py=(coast[i-1][1]+coast[i][1])/2;d+=" Q"+coast[i-1][0]+" "+coast[i-1][1]+" "+px+" "+py;}
+  d+=" L"+coast[coast.length-1][0]+" "+coast[coast.length-1][1];
+  var hubs={syd:[528,361],wits:[434,150],mel:[276,430]};
+  var svg='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="行程总览示意地图">';
+  svg+='<rect x="8" y="8" width="'+(W-16)+'" height="'+(H-16)+'" rx="16" fill="none" stroke="currentColor" stroke-opacity="0.15" stroke-dasharray="3 6"/>';
+  // 海岸线
+  svg+='<path d="'+d+'" fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round"/>';
+  // Tasmania 小岛示意
+  svg+='<path d="M320 430 Q340 420 360 432 Q355 458 330 452 Q312 442 320 430 Z" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="2"/>';
+  // 两段大路线（飞行）
+  function arc(x1,y1,x2,y2,c,off){var mx=(x1+x2)/2,my=(y1+y2)/2-off;
+    svg+='<path d="M'+x1+' '+y1+' Q'+mx+' '+my+' '+x2+' '+y2+'" fill="none" stroke="'+c+'" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="1 0"/>';}
+  arc(hubs.syd[0],hubs.syd[1],hubs.wits[0],hubs.wits[1],DC[5],70);
+  arc(hubs.wits[0],hubs.wits[1],hubs.mel[0],hubs.mel[1],DC[9],90);
+  // 回程示意
+  svg+='<path d="M276 430 Q200 470 120 500" fill="none" stroke="'+DC[12]+'" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 7" opacity="0.8"/>';
+  svg+='<text x="96" y="516" font-size="11" fill="currentColor" opacity="0.7">返程 10/5 晚</text>';
+  // hub 标记
+  function hub(px,py,label,sub,color){
+    svg+='<circle cx="'+px+'" cy="'+py+'" r="17" fill="'+color+'" stroke="#fff" stroke-width="3"/>';
+    svg+='<circle cx="'+px+'" cy="'+py+'" r="17" fill="none" stroke="currentColor" stroke-opacity="0.25"/>';
+    svg+='<text x="'+px+'" y="'+(py+4)+'" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">'+(sub||"")+'</text>';
+    svg+='<text x="'+px+'" y="'+(py-30)+'" text-anchor="middle" font-size="16" font-weight="800" fill="currentColor">'+label+'</text>';
+  }
+  hub(hubs.syd[0],hubs.syd[1],"悉尼","S",DC[1]);
+  hub(hubs.wits[0],hubs.wits[1],"圣灵群岛","W",DC[6]);
+  hub(hubs.mel[0],hubs.mel[1],"墨尔本","M",DC[10]);
+  svg+='<text x="528" y="392" text-anchor="middle" font-size="10.5" fill="currentColor" opacity="0.75">9/24–27 宿悉尼</text>';
+  svg+='<text x="434" y="182" text-anchor="middle" font-size="10.5" fill="currentColor" opacity="0.75">9/28–29 艾尔利 · 9/30–10/1 汉岛</text>';
+  svg+='<text x="276" y="468" text-anchor="middle" font-size="10.5" fill="currentColor" opacity="0.75">10/2–4 宿墨尔本</text>';
+  svg+='</svg>';
+  el.innerHTML=svg;
+  // legend
+  var lg=document.getElementById("overviewLegend"),h="";
+  [[DC[1],"9/24–27 悉尼 · Rydges"],[DC[5],"9/28 悉尼→圣灵海岸 航班"],
+   [DC[6],"9/29 艾尔利 Camira"],[DC[7],"9/30 跳伞→直升机→轮渡"],
+   [DC[8],"10/1 汉岛自由日"],[DC[9],"10/2 汉岛→墨尔本 航班"],
+   [DC[10],"10/3 菲利普岛"],[DC[11],"10/4 大洋路"],[DC[12],"10/5 返程"]].forEach(function(x){
+    h+='<span style="display:inline-flex;align-items:center;gap:6px;margin:3px 10px 3px 0;font-size:12px;color:var(--muted)"><span style="width:10px;height:10px;border-radius:50%;background:'+x[0]+';display:inline-block"></span>'+x[1]+'</span>';
+  });
+  lg.innerHTML=h;
+}
+
+/* ============ 倒计时 & 时钟 ============ */
+function fmt2(n){return (n<10?"0":"")+n}
+function pad2(n){return (n<10?"0":"")+n}
+function tick(){
+  var now=Date.now(), ev=null;
+  for(var i=0;i<EVENTS.length;i++){ if(EVENTS[i].t>now){ev=EVENTS[i];break} }
+  // 悉尼时钟
+  try{
+    var c=new Intl.DateTimeFormat("zh-CN",{timeZone:"Australia/Sydney",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date(now));
+    document.getElementById("nowClock").textContent="悉尼时间 "+c;
+  }catch(e){document.getElementById("nowClock").textContent=""}
+  if(ev){
+    var diff=Math.max(0,ev.t-now);
+    var d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);
+    document.getElementById("cd-d").textContent=d;
+    document.getElementById("cd-h").textContent=pad2(h);
+    document.getElementById("cd-m").textContent=pad2(m);
+    document.getElementById("cd-s").textContent=pad2(s);
+    document.getElementById("nowLabel").textContent=ev.label;
+    document.getElementById("nowMeta").textContent=ev.loc+" · "+ev.place;
+    document.getElementById("nowPlace").textContent="下一站："+ev.place;
+  }else{
+    document.getElementById("cd-d").textContent="–";
+    document.getElementById("cd-h").textContent="–";
+    document.getElementById("cd-m").textContent="–";
+    document.getElementById("cd-s").textContent="–";
+    document.getElementById("nowLabel").textContent="旅途已结束，平安到家";
+    document.getElementById("nowMeta").textContent="";
+    document.getElementById("nowPlace").textContent="";
+  }
+  // 设备本地
+  try{
+    var tz=Intl.DateTimeFormat().resolvedOptions().timeZone;
+    var lt=new Date(now).toLocaleTimeString("zh-CN",{hour:"2-digit",minute:"2-digit"});
+    document.getElementById("nowDevice").textContent="你的本地时间 "+lt+"（"+tz+"）";
+  }catch(e){}
+}
+renderDays();
+renderOverview();
+tick();
+setInterval(tick,1000);
+</script>
+</body>
+</html>
