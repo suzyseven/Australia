@@ -421,6 +421,63 @@ var DC=["#C9971E","#3E8FA6","#2F7FA6","#4D6FAC","#7A64A6","#13908F","#2FA279","#
 var GM=function(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q)};
 var GL=function(qs){return qs.length<2?GM(qs[0]):"https://www.google.com/maps/dir/"+qs.map(encodeURIComponent).join("/")};
 
+/* ===== 手机端地图：优先唤起已安装的 Google Maps App，App 打不开再退回网页 ===== */
+var _UA=(navigator.userAgent||"").toLowerCase();
+var _iOS=/iphone|ipod|ipad/.test(_UA)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+var _And=/android/.test(_UA);
+var _left=false;
+if(document.addEventListener){
+  document.addEventListener("visibilitychange",function(){if(document.hidden)_left=true;});
+}
+/* 把网页版 Google 地图链接翻译成 App 的深度链接 */
+function _gmApp(url){
+  if(!_iOS&&!_And)return url;
+  if(_iOS){
+    var i=url.indexOf("/maps/dir/");
+    if(i>=0){
+      var tail=url.slice(i+10).split("?")[0], seg=tail.split("/").filter(Boolean);
+      if(seg.length>=2){
+        var p=[];
+        for(var k=0;k<seg.length;k++)p.push((k===0?"saddr":"daddr")+"="+encodeURIComponent(decodeURIComponent(seg[k])));
+        return "comgooglemaps://?"+p.join("&");
+      }
+      return "comgooglemaps://?q="+encodeURIComponent(decodeURIComponent(seg[0]||tail));
+    }
+    var m=url.match(/[?&]query=([^&]*)/);
+    return "comgooglemaps://?q="+(m?decodeURIComponent(m[1]):encodeURIComponent(url));
+  }
+  /* Android：intent 唤起 Google Maps App */
+  var j=url.indexOf("/maps");
+  var path=j>=0?url.slice(j).split("#")[0]:"/?q=";
+  return "intent://maps.google.com"+path+"#Intent;scheme=https;package=com.google.android.apps.maps;end";
+}
+function openMapUrl(url){
+  if(_iOS||_And){
+    var app=_gmApp(url);
+    if(app!==url){
+      _left=false;
+      setTimeout(function(){
+        if(!_left&&!document.hidden){window.open(url,"_blank","noopener");}
+      },2200);
+      window.location.href=app;
+      return;
+    }
+  }
+  window.open(url,"_blank","noopener");
+}
+/* 所有指向 Google 地图的链接都走上面的逻辑 */
+if(document.addEventListener){
+  document.addEventListener("click",function(ev){
+    if(!ev.target||ev.defaultPrevented||ev.button!==0||ev.metaKey||ev.ctrlKey||ev.shiftKey||ev.altKey)return;
+    var a=ev.target.closest?ev.target.closest('a[href*="google.com/maps"]'):null;
+    if(!a||(!_iOS&&!_And))return;
+    var href=a.getAttribute("href");
+    if(!href)return;
+    ev.preventDefault();
+    openMapUrl(href);
+  });
+}
+
 /* ============ 逐日数据 ============ */
 var DAYS=[
 {d:1,date:"9/23 周三",city:"上海 → 新加坡",title:"启程 · 夜航",color:DC[0],hotel:"飞机上（SQ231）",
@@ -563,7 +620,7 @@ function renderDays(){
 }
 function openAll(d){
   var dy=DAYS[d-1], qs=dy.nav.map(function(x){return x.q});
-  window.open(GL(qs),"_blank","noopener");
+  openMapUrl(GL(qs));
 }
 function drawDayMap(id,labels,color){
   var el=document.getElementById(id); if(!el)return;
